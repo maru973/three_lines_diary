@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to root_path, success: 'Account created! Lets start together!'
+      redirect_to diaries_path, success: "Account created! Let's start together!"
     else
       flash.now[:danger] = 'Somthing went wrong. Try again!'
       render :new, status: :unprocessable_entity
