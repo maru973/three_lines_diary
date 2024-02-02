@@ -2,6 +2,10 @@ class Diary < ApplicationRecord
   belongs_to :user
   
   before_validation :set_diary_title
+
+  VALID_ENGLISH_REGEX = /^[ -~]*$/
+  validate :english_only
+
   validates :first_line, presence: true, length: { maximum: 255 }
   validates :second_line, presence: true, length: { maximum: 255 }
   validates :third_line, presence: true, length: { maximum: 255 }
@@ -15,5 +19,11 @@ class Diary < ApplicationRecord
 
     # 日記数に基づいてタイトルを生成
     self.title = "Day#{user_diaries_count + 1}"
+  end
+
+  def english_only
+    unless [first_line, second_line, third_line].all? { |line| line =~ VALID_ENGLISH_REGEX }
+      errors.add(:base, "You can't use Japanese.")
+    end
   end
 end
