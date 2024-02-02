@@ -1,0 +1,14 @@
+<tr id="comment-<%= comment.id %>">
+  <td style="width: 60px">
+    <%= image_tag 'sample.jpg', class: 'rounded-circle', width: '50', height: '50' %>
+  </td>
+  <td>
+    <h3 class="small"><%= comment.user.first_name %></h3>
+    <%= form_with model: comment, url: comment_path(comment), local: true do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      <%= f.label :Comment %>
+      <%= f.text_area :body, class: 'form-control mb-3', row: '4', placeholder: "Comment" %>
+      <%= f.submit nil, class: 'btn btn-primary' %>
+    <% end %>
+  </td>
+</tr>
