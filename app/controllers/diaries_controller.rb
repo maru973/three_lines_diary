@@ -18,8 +18,31 @@ class DiariesController < ApplicationController
   end
 
   def show
-
+    @diary = Diary.find(params[:id])
+    @comment = Comment.new
+    @comments = @diary.comments.includes(:user).order(created_at: :desc)
   end
+
+  def edit
+    @diary = current_user.diaries.find(params[:id])
+  end
+
+  def update
+    @diary = current_user.diaries.find(params[:id])
+    if @diary.update(diary_params)
+      redirect_to diary_path(@diary), success: "Your Diary was updated!"
+    else
+      flash.now[:danger] = "We can't update your diary. Could you try adain?"
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @diary = current_user.diaries.find(params[:id])
+    @diary.destroy!
+    redirect_to diaries_path, status: :see_other, success: "Your Diary was deleted."
+  end
+
 
   private
 

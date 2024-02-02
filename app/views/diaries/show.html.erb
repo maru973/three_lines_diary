@@ -1,0 +1,50 @@
+<div class="container pt-5">
+  <div class="row mb-3">
+    <div class="col-lg-8 offset-lg-2">
+      <!-- 日記内容 -->
+      <article class="card">
+        <div class="card-body">
+          <div class='row'>
+            <div class='col-md-3'>
+              <%= image_tag 'sample.jpg', class: 'card-img-top img-fluid', width: '300', height: '200' %>
+            </div>
+            <div class='col-md-9'>
+              <h3 style='display: inline;'><%= @diary.title %></h3>
+              <ul class="list-inline">
+                <li class="list-inline-item"><%= "by #{@diary.user.first_name}" %></li>
+                <li class="list-inline-item"><%= @diary.created_at %></li>
+              </ul>
+              <% if current_user.own?(@diary) %>
+                <div class='d-flex justify-content-end'>
+                  <%= link_to edit_diary_path(@diary), id: "button-edit-#{@diary.id}" do %>
+                    <i class="bi bi-pencil-fill"></i>
+                  <% end %>
+                  <%= link_to diary_path(@diary), id: "button-delete-#{@diary.id}", data: {turbo_method: :delete, turbo_confirm: 'Are you sure?' } do %>
+                    <i class="bi bi-trash-fill"></i>
+                  <% end %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+          <p><%= simple_format(@diary.first_line) %></p>
+          <p><%= simple_format(@diary.second_line) %></p>
+          <p><%= simple_format(@diary.third_line) %></p>
+        </div>
+      </article>
+    </div>
+  </div>
+  <!-- コメントフォーム -->
+  <%= render 'comments/form', comment: @comment, diary: @diary %>
+  <!-- コメントエリア -->
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <%= turbo_frame_tag dom_id(@comment) do %>
+        <table class="table">
+          <tbody id="table-comment">
+            <%= render @comments%>
+          </tbody>
+        </table>
+      <% end %>
+    </div>
+  </div>
+</div>
