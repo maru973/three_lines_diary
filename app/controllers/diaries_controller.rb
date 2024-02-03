@@ -43,10 +43,13 @@ class DiariesController < ApplicationController
     redirect_to diaries_path, status: :see_other, success: "Your Diary was deleted."
   end
 
+  def bookmarks
+    @bookmark_diaries = current_user.bookmark_diaries.includes(:user).order(created_at: :desc)
+  end
 
   private
 
   def diary_params
-    params.require(:diary).permit(:first_line, :second_line, :third_line)
+    params.require(:diary).permit(:first_line, :second_line, :third_line, :diary_image, :diary_image_cache)
   end
 end
