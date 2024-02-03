@@ -1,9 +1,6 @@
 <%= turbo_stream.replace "comment-#{@comment.id}" do %>
-  <%= render 'edit_comment', comment: @comment, diary: @comment.diary %>
+  <%= render 'edit_comment', comment: @comment %>
 <% end %>
 <%= turbo_stream.prepend 'table-comment' do %>
-  <%= render 'comment', comment: @comment, diary: @comment.diary %>
-<% end %>
-<%= turbo_stream.replace "comment-#{@comment.id}" do %>
-  <%= render 'edit_comment', comment: @comment, diary: @comment.diary %>
+  <%= render 'comment', comment: @comment%>
 <% end %>
