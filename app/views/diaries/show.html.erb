@@ -38,13 +38,13 @@
   <!-- コメントエリア -->
   <div class="row">
     <div class="col-lg-8 offset-lg-2">
-      <%= turbo_frame_tag dom_id(@comment) do %>
+
         <table class="table">
           <tbody id="table-comment">
             <%= render @comments%>
           </tbody>
         </table>
-      <% end %>
+
     </div>
   </div>
 </div>
