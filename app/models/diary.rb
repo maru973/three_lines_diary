@@ -1,6 +1,8 @@
 class Diary < ApplicationRecord
+  mount_uploader :diary_image, DiaryImageUploader
   belongs_to :user
   has_many :comments, dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
   
   before_validation :set_diary_title
 

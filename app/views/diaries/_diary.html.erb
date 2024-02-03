@@ -1,7 +1,7 @@
 <div class="col-sm-12 col-lg-4 mb-3">
 	<div id="diary-id-<%= diary.id %>">
   	<div class="card">
-			<%= image_tag 'sample.jpg', class: 'card-img-top', width: '300', height: '200' %>
+			<%= image_tag diary.diary_image_url, class: 'card-img-top', width: '300', height: '200' %>
 			<div class="card-body">
       	<div class="d-flex">
           <h4 class="card-title">
@@ -18,7 +18,7 @@
       			</div>
 					<% else %>
 						<div class="ms-auto">
-							ほし
+							<%= render 'bookmark_button', diary: diary %>
 						</div>
 					<% end %>
 				</div>

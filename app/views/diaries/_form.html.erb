@@ -1,6 +1,14 @@
 <%= form_with model: diary, local: true do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="mb-3">
+    <%= f.label :diary_image %>
+    <%= f.file_field :diary_image, class: 'form-control', accept: 'image/*' %>
+    <%= f.hidden_field :diary_image_cache %>
+  </div>
+  <div class="mb-3">
+    <%= image_tag @diary.diary_image_url, class: 'preview', size: '300x200' %>
+  </div>
+  <div class="mb-3">
     <%= f.label :first_line %>
     <%= f.text_field :first_line, class: 'form-control', id: 'first_line' %>
   </div>
