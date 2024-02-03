@@ -23,8 +23,10 @@
 					<% end %>
 				</div>
         <ul class="list-inline">
-      		<li><i class="bi bi-person"></i> <%= diary.user.first_name %></li>
-      		<li><i class="bi bi-calendar"></i> <%= diary.created_at %></li>
+      		<li>
+    				<%= image_tag diary.user.avatar_url, class: 'rounded-circle', width: '40', height: '40' %>
+					</i><%= diary.user.first_name %></li>
+      		<li><i class="bi bi-calendar"></i><%= diary.created_at %></li>
 				</ul>
       	<p class="card-text"><%= diary.first_line %></p>
         <p class="card-text"><%= diary.second_line %></p>
