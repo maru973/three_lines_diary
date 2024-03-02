@@ -1,37 +1,56 @@
 <div class="col-sm-12 col-lg-4 mb-3">
 	<div id="diary-id-<%= diary.id %>">
-  	<div class="card">
-			<%= image_tag diary.diary_image_url, class: 'card-img-top', width: '300', height: '200' %>
-			<div class="card-body">
-      	<div class="d-flex">
-          <h4 class="card-title">
-						<%= link_to diary.title, diary_path(diary) %>
-          </h4>
-					<% if current_user.own?(diary) %>
-          	<div class="ms-auto">
-            	<%= link_to edit_diary_path(diary), id: "button-edit-#{diary.id}" do %>
-            		<i class="bi bi-pencil-fill"></i>
-        			<% end %>
-          		<%= link_to diary_path(diary), id: "button-delete-#{diary.id}", data: {turbo_method: :delete, turbo_confirm: 'Are you sure?' } do %>
-         				<i class="bi bi-trash-fill"></i>
-       				<% end %>
-      			</div>
-					<% else %>
-						<div class="ms-auto">
-							<%= render 'bookmark_button', diary: diary %>
-						</div>
-					<% end %>
-				</div>
-        <ul class="list-inline">
-      		<li>
-    				<%= image_tag diary.user.avatar_url, class: 'rounded-circle', width: '40', height: '40' %>
-					</i><%= diary.user.first_name %></li>
-      		<li><i class="bi bi-calendar"></i><%= diary.created_at %></li>
-				</ul>
-      	<p class="card-text"><%= diary.first_line %></p>
-        <p class="card-text"><%= diary.second_line %></p>
-        <p class="card-text"><%= diary.third_line %></p>
-   		</div>
+  	<div class="card shadow letro" style="background-color: #FFFAF0;">
+  		<!-- 丸のアイコンを縦並びにする部分 -->
+  		<div class="d-flex flex-column justify-content-start align-items-center p-3" style="width: 20px; height: 40px;">
+    		<i class="bi bi-circle mb-2"></i>
+				<i class="bi bi-circle mb-2"></i>
+				<i class="bi bi-circle mb-2"></i>
+				<i class="bi bi-circle mb-2"></i>
+				<i class="bi bi-circle mb-2"></i>
+				<i class="bi bi-circle mb-2"></i>
+				<i class="bi bi-circle mb-2"></i>
+				<i class="bi bi-circle mb-2"></i>
+				<i class="bi bi-circle mb-2"></i>
+				<i class="bi bi-circle mb-2"></i>
+				<i class="bi bi-circle mb-2"></i>
+				<i class="bi bi-circle mb-2"></i>
+				<i class="bi bi-circle mb-2"></i>
+				<i class="bi bi-circle mb-2"></i>
+  		</div>
+			<div class="container mx-3">
+				<%= image_tag diary.diary_image_url, class: 'card-img-top px-4', width: '300', height: '200' %>
+				<div class="card-body px-4">
+      		<div class="d-flex">
+      	    <h4 class="card-title">
+							<%= link_to diary.title, diary_path(diary) %>
+      	    </h4>
+						<% if current_user.own?(diary) %>
+      	    	<div class="ms-auto">
+      	      	<%= link_to edit_diary_path(diary), id: "button-edit-#{diary.id}" do %>
+      	      		<i class="bi bi-pencil-fill"></i>
+      	  			<% end %>
+      	    		<%= link_to diary_path(diary), id: "button-delete-#{diary.id}", data: {turbo_method: :delete, turbo_confirm: 'Are you sure?' } do %>
+      	   				<i class="bi bi-trash-fill"></i>
+      	 				<% end %>
+      				</div>
+						<% else %>
+							<div class="ms-auto">
+								<%= render 'bookmark_button', diary: diary %>
+							</div>
+						<% end %>
+					</div>
+      	  <ul class="list-inline d-flex border-bottom">
+      			<li>
+    					<%= image_tag diary.user.avatar_url, class: 'rounded-circle mb-2', width: '30', height: '30' %>
+						</i><%= diary.user.first_name %></li>
+      			<li><i class="bi bi-calendar ms-4"></i><%= diary.created_at %></li>
+					</ul>
+      		<p class="card-text border-bottom"><%= diary.first_line %></p>
+      	  <p class="card-text border-bottom"><%= diary.second_line %></p>
+      	  <p class="card-text border-bottom"><%= diary.third_line %></p>
+   			</div>
+			</div>
  		</div>
 	</div>
 </div>
