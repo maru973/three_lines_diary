@@ -8,16 +8,42 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
+
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <style>
+      body {
+        background-image: url('https://images.unsplash.com/photo-1643874626318-964452868452?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+        font-family: 'Dancing Script', cursive;
+        height: calc(100vh - 134px);
+        background-size: cover;
+        position: relative;
+        background-position: center;
+      }
+      main {
+        padding-bottom: 29px
+      }
+      .top-inner-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        text-align: center;
+        font-size: 3rem;
+      }
+    </style>
   </head>
 
-  <body>
+  <body style="background-color: #666666">
     <% if logged_in? %>
       <%= render 'shared/header' %>
     <% else %>
       <%= render 'shared/before_login_header' %>
     <% end %>
     <%= render 'shared/flash_message' %>
-    <%= yield %>
+    <main>
+      <%= yield %>
+    </main>
     <%= render 'shared/footer' %>
   </body>
 </html>
