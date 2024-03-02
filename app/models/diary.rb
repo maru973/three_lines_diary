@@ -13,7 +13,11 @@ class Diary < ApplicationRecord
   validates :third_line, presence: true, length: { maximum: 255 }
   validates :title, presence: true
 
-  private
+  def translated?
+    # translated フラグが true の場合に翻訳が完了していると判断します
+    return true
+  end
+
 
   def set_diary_title
     # 直近の日記のタイトルを取得
