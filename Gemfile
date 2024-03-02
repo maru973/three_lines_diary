@@ -51,6 +51,9 @@ gem "bootsnap", require: false
 
 gem 'sorcery', "0.16.3"
 gem 'carrierwave', '~> 3.0'
+gem 'dotenv-rails'
+gem 'deepl-rb', require: 'deepl'
+gem 'httpclient'
 
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]

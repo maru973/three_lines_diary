@@ -26,11 +26,25 @@
               <% end %>
             </div>
           </div>
-          <p><%= simple_format(@diary.first_line) %></p>
-          <p><%= simple_format(@diary.second_line) %></p>
-          <p><%= simple_format(@diary.third_line) %></p>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6">
+                <strong>User's Lines</strong>
+                <p><%= simple_format(@diary.first_line) %></p>
+                <p><%= simple_format(@diary.second_line) %></p>
+                <p><%= simple_format(@diary.third_line) %></p>
+              </div>
+              <div class="col-md-6">
+                <strong>Modified Lines</strong>
+                <p><%= simple_format(@translated_first_line) %></p>
+                <p><%= simple_format(@translated_second_line) %></p>
+                <p><%= simple_format(@translated_third_line) %></p>
+              </div>
+            </div>
+          </div>
         </div>
       </article>
+      <%= link_to "Back to Index", diaries_path, class: "btn btn-primary" %>
     </div>
   </div>
   <!-- コメントフォーム -->
