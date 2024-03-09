@@ -2,11 +2,25 @@
   <div class="row mb-3">
     <div class="col-lg-8 offset-lg-2">
       <!-- 日記内容 -->
-      <article class="card">
-        <div class="card-body">
+      <article class="card shadow" style="background-color: #FFFAF0;">
+        <!-- 丸のアイコンを縦並びにする部分 -->
+        <div class="d-flex flex-column justify-content-start align-items-center p-3" style="width: 20px; height: 40px;">
+          <i class="bi bi-circle mb-2"></i>
+          <i class="bi bi-circle mb-2"></i>
+          <i class="bi bi-circle mb-2"></i>
+          <i class="bi bi-circle mb-2"></i>
+          <i class="bi bi-circle mb-2"></i>
+          <i class="bi bi-circle mb-2"></i>
+          <i class="bi bi-circle mb-2"></i>
+          <i class="bi bi-circle mb-2"></i>
+          <i class="bi bi-circle mb-2"></i>
+          <i class="bi bi-circle mb-2"></i>
+          <i class="bi bi-circle mb-2"></i>
+        </div>
+        <div class="card-body mx-4">
           <div class='row'>
-            <div class='col-md-3'>
-              <%= image_tag 'sample.jpg', class: 'card-img-top img-fluid', width: '300', height: '200' %>
+            <div class='col-md-7 mx-auto'>
+              <%= image_tag @diary.diary_image_url, class: 'card-img-top img-fluid px-4', width: '300', height: '200' %>
             </div>
             <div class='col-md-9'>
               <h3 style='display: inline;'><%= @diary.title %></h3>
