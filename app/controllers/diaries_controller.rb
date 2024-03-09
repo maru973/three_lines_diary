@@ -17,19 +17,19 @@ class DiariesController < ApplicationController
     @translated_second_line = translate_to_english_back(@diary.second_line)
     @translated_third_line = translate_to_english_back(@diary.third_line)
 
-    @diary.update(
-        translated_first_line: @translated_first_line,
-        translated_second_line: @translated_second_line,
-        translated_third_line: @translated_third_line,
-        translated: true
-      )
-      if @diary.save
+    @diary.translated_first_line = @translated_first_line
+    @diary.translated_second_line = @translated_second_line
+    @diary.translated_third_line = @translated_third_line
+    @diary.translated = true
 
-        redirect_to diary_path(@diary), success: "Today's Diary was created!"
-      else
-        flash.now[:danger] = "We can't create your diary. Could you try adain?"
-        render :new, status: :unprocessable_entity
-      end 
+    @diary.set_diary_title
+
+    if @diary.save
+      redirect_to diary_path(@diary), success: "Today's Diary was created!"
+    else
+      flash.now[:danger] = "We can't create your diary. Could you try adain?"
+      render :new, status: :unprocessable_entity
+    end 
   end
 
   def show

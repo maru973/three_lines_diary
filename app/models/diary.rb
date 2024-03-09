@@ -3,8 +3,6 @@ class Diary < ApplicationRecord
   belongs_to :user
   has_many :comments, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
-  
-  before_validation :set_diary_title
 
   validate :english_only
 
@@ -12,12 +10,6 @@ class Diary < ApplicationRecord
   validates :second_line, presence: true, length: { maximum: 255 }
   validates :third_line, presence: true, length: { maximum: 255 }
   validates :title, presence: true
-
-  def translated?
-    # translated フラグが true の場合に翻訳が完了していると判断します
-    return true
-  end
-
 
   def set_diary_title
     # 直近の日記のタイトルを取得
