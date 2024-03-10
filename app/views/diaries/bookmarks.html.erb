@@ -7,7 +7,7 @@
 				<% if @bookmark_diaries.present? %>
           <%= render @bookmark_diaries %>
         <% else %>
-					<div class="mb-3"><%= t('.no_result') %>
+					<div class="mb-3 text-light">No Diaries</div>
 				<% end %>
 			</div>
 			<%= paginate @bookmark_diaries, theme: 'bootstrap-5' %>

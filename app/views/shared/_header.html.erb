@@ -10,17 +10,12 @@
 
     <div class='collapse navbar-collapse' id='navbarSupportedContent'>
       <ul class='navbar-nav ms-auto main-nav align-items-center'>
-        <li class='nav-item dropdown dropdown-slide'>
-          <%= link_to 'Diary', '#', class: 'nav-link dropdown-toggle', data: { bs_toggle: 'dropdown' }, aria: { haspopup: 'true', expanded: 'false' }, id: 'header-diary-menu'%>
-          <div class='dropdown-menu dropdown-menu-end'>
-            <%= link_to "Show Other's Diary", diaries_path, class: 'dropdown-item' %>
-            <%= link_to "My Favorite Diary", bookmarks_diaries_path, class: 'dropdown-item' %>
-            <%= link_to "Write Today's Diary", new_diary_path, class: 'dropdown-item' %>
-          </div>
+        <li class='nav-item'>
+          <%= link_to "Other's Diary", diaries_path, class: 'nav-link' %>
         </li>
 
         <li class='nav-item'>
-          <%= link_to 'My Diary', mydiaries_path, class: 'nav-link' %>
+          <%= link_to "Write Today's Diary", new_diary_path, class: 'nav-link' %>
         </li>
         <li class='nav-item dropdown dropdown-slide'>
           <%= link_to '#', class: 'nav-link dropdown-toggle', data: { bs_toggle: 'dropdown' }, aria: { haspopup: 'true', expanded: 'false' }, id: 'header-profile' do %>
@@ -30,6 +25,8 @@
             <div class='dropdown-item'><%= current_user.first_name %></div>
             <div class='dropdown-divider'></div>
             <%= link_to 'Profile', profile_path, class: 'dropdown-item' %>
+                        <%= link_to 'My Diary', mydiaries_path, class: 'dropdown-item' %>
+            <%= link_to "My Favorite Diary", bookmarks_diaries_path, class: 'dropdown-item' %>
             <%= link_to 'Close My Diary', logout_path, class: 'dropdown-item', data: {turbo_method: :delete} %>
           </div>
         </li>

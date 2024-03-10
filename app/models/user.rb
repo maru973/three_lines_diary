@@ -7,13 +7,15 @@ class User < ApplicationRecord
   has_many :bookmarks, dependent: :destroy
   has_many :bookmark_diaries, through: :bookmarks, source: :diary
 
+  validate :english_only
+
   validates :password, length: { minimum: 3 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
   validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
 
   validates :email, presence: true, uniqueness: true
   validates :first_name, presence: true, length: { maximum: 255 }
-  validates :last_name, length: { maximum: 255 }
+  validates :last_name, presence: true, length: { maximum: 255 }
 
   def own?(object)
     id == object&.user_id
@@ -29,5 +31,12 @@ class User < ApplicationRecord
 
   def bookmark?(diary)
     bookmark_diaries.include?(diary)
+  end
+
+  def english_only
+    valid_english_regex = /^[ -~]*$/
+    unless [first_name].any? { |name| name =~ valid_english_regex }
+      errors.add(:base, "You can't use Japanese.")
+    end
   end
 end
