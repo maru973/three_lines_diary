@@ -54,6 +54,8 @@ gem 'carrierwave', '~> 3.0'
 gem 'dotenv-rails'
 gem 'deepl-rb', require: 'deepl'
 gem 'httpclient'
+gem 'kaminari'
+gem 'bootstrap5-kaminari-views'
 
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]

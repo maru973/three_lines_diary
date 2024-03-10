@@ -24,7 +24,7 @@ module App
       g.skip_routes true
     end
 
-    # config.time_zone = "Central Time (US & Canada)"
+    config.time_zone = 'Tokyo'
     # config.eager_load_paths << Rails.root.join("extras")
   end
 end

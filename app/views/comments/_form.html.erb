@@ -2,9 +2,11 @@
   <div class="col-lg-8 offset-lg-2">
     <%= form_with model: [ diary, comment ], local: true do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
-      <%= f.label :Comment %>
+      <%= f.label :Comment, class: 'text-light'%>
       <%= f.text_area :body, class: 'form-control mb-3', row: '4', placeholder: "Comment" %>
-      <%= f.submit nil, class: 'btn btn-primary' %>
+      <div class="mx-5 mt-2 d-flex justify-content-center">
+        <%= f.submit nil, class: 'btn btn-dark btn-lg btn-outline-light' %>
+      </div>
     <% end %>
   </div>
 </div>

@@ -16,49 +16,68 @@
           <i class="bi bi-circle mb-2"></i>
           <i class="bi bi-circle mb-2"></i>
           <i class="bi bi-circle mb-2"></i>
+          <i class="bi bi-circle mb-2"></i>
+          <i class="bi bi-circle mb-2"></i>
+          <i class="bi bi-circle mb-2"></i>
+          <i class="bi bi-circle mb-2"></i>
+          <i class="bi bi-circle mb-2"></i>
+          <i class="bi bi-circle mb-2"></i>
+          <i class="bi bi-circle mb-2"></i>
+          <i class="bi bi-circle mb-2"></i>
+          <i class="bi bi-circle mb-2"></i>
+          <i class="bi bi-circle mb-2"></i>
+          <i class="bi bi-circle mb-2"></i>
         </div>
         <div class="card-body mx-4">
           <div class='row'>
             <div class='col-md-7 mx-auto'>
               <%= image_tag @diary.diary_image_url, class: 'card-img-top img-fluid px-4', width: '300', height: '200' %>
             </div>
-            <div class='col-md-9'>
-              <h3 style='display: inline;'><%= @diary.title %></h3>
-              <ul class="list-inline">
-                <li class="list-inline-item"><%= "by #{@diary.user.first_name}" %></li>
-                <li class="list-inline-item"><%= @diary.created_at %></li>
-              </ul>
+            <div class='row mx-2 my-3'>
+              <h3 class="col-6 fw-bold border-bottom"><%= @diary.title %></h3>
               <% if current_user.own?(@diary) %>
-                <div class='d-flex justify-content-end'>
+                <div class='col-6 d-flex justify-content-end'>
                   <%= link_to edit_diary_path(@diary), id: "button-edit-#{@diary.id}" do %>
-                    <i class="bi bi-pencil-fill"></i>
+                    <i class="bi bi-vector-pen"></i>
                   <% end %>
                   <%= link_to diary_path(@diary), id: "button-delete-#{@diary.id}", data: {turbo_method: :delete, turbo_confirm: 'Are you sure?' } do %>
-                    <i class="bi bi-trash-fill"></i>
+                    <i class="bi bi-trash3"></i>
                   <% end %>
                 </div>
               <% end %>
             </div>
+            <div class='row mx-2'>
+              <div class="col-6 d-flex border-bottom"></div>
+              <div class="col-6 d-flex border-bottom justify-content-end">
+                <i class="bi bi-calendar me-2"></i><%= @diary.created_at.strftime("%Y/%m/%d %H:%M") %>
+                <div class="ms-4">
+                  <%= "by #{@diary.user.first_name}" %>
+                  <%= image_tag @diary.user.avatar_url, class: 'rounded-circle mb-1', width: '30', height: '30' %>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="container">
+          <div class="container m-3">
             <div class="row">
-              <div class="col-md-6">
-                <strong>User's Lines</strong>
-                <p><%= simple_format(@diary.first_line) %></p>
-                <p><%= simple_format(@diary.second_line) %></p>
-                <p><%= simple_format(@diary.third_line) %></p>
-              </div>
-              <div class="col-md-6">
-                <strong>Modified Lines</strong>
-                <p><%= simple_format(@translated_first_line) %></p>
-                <p><%= simple_format(@translated_second_line) %></p>
-                <p><%= simple_format(@translated_third_line) %></p>
-              </div>
+              <!-- 原文と修正文を横並びで表示 -->
+              <h5 class="col-6 fw-bold border-bottom">User's Lines</h5>
+              <h5 class="col-6 fw-bold border-bottom">Modified Lines</h5>
+              <!-- １文目 -->
+              <p class="col-6 border-bottom"><%= @diary.first_line %></p>
+              <p class="col-6 border-bottom"><%= @translated_first_line %></p>
+              <!-- ２文目 -->
+              <p class="col-6 border-bottom"><%= @diary.second_line %></p>
+              <p class="col-6 border-bottom"><%= @translated_second_line %></p>
+              <!-- ３文目 -->
+              <p class="col-6 border-bottom"><%= @diary.third_line %></p>
+              <p class="col-6 border-bottom"><%= @translated_third_line %></p>
             </div>
           </div>
         </div>
       </article>
-      <%= link_to "Back to Index", diaries_path, class: "btn btn-primary" %>
+      <div class="mx-5 mt-2 d-flex justify-content-center">
+        <%= link_to "Back to Index", diaries_path, class: "btn btn-dark btn-lg btn-outline-light" %>
+      </div>
     </div>
   </div>
   <!-- コメントフォーム -->
@@ -66,13 +85,11 @@
   <!-- コメントエリア -->
   <div class="row">
     <div class="col-lg-8 offset-lg-2">
-
-        <table class="table">
-          <tbody id="table-comment">
-            <%= render @comments%>
-          </tbody>
-        </table>
-
+      <table class="table">
+        <tbody id="table-comment">
+          <%= render @comments%>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
