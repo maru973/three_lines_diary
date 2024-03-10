@@ -28,10 +28,10 @@
 						<% if current_user.own?(diary) %>
       	    	<div class="ms-auto">
       	      	<%= link_to edit_diary_path(diary), id: "button-edit-#{diary.id}" do %>
-      	      		<i class="bi bi-pencil-fill"></i>
+      	      		<i class="bi bi-vector-pen"></i>
       	  			<% end %>
       	    		<%= link_to diary_path(diary), id: "button-delete-#{diary.id}", data: {turbo_method: :delete, turbo_confirm: 'Are you sure?' } do %>
-      	   				<i class="bi bi-trash-fill"></i>
+      	   				<i class="bi bi-trash3"></i>
       	 				<% end %>
       				</div>
 						<% else %>
@@ -44,11 +44,11 @@
       			<li>
     					<%= image_tag diary.user.avatar_url, class: 'rounded-circle mb-2', width: '30', height: '30' %>
 						</i><%= diary.user.first_name %></li>
-      			<li><i class="bi bi-calendar ms-4"></i><%= diary.created_at %></li>
+      			<li><i class="bi bi-calendar ms-4 me-2"></i><%= diary.created_at.strftime("%Y/%m/%d %H:%M") %></li>
 					</ul>
-      		<p class="card-text border-bottom"><%= diary.first_line %></p>
-      	  <p class="card-text border-bottom"><%= diary.second_line %></p>
-      	  <p class="card-text border-bottom"><%= diary.third_line %></p>
+      		<p class="card-text border-bottom text-truncate"><%= diary.first_line %></p>
+      	  <p class="card-text border-bottom text-truncate"><%= diary.second_line %></p>
+      	  <p class="card-text border-bottom text-truncate"><%= diary.third_line %></p>
    			</div>
 			</div>
  		</div>
