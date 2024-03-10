@@ -40,13 +40,19 @@
 							</div>
 						<% end %>
 					</div>
-      	  <ul class="list-inline d-flex border-bottom">
-      			<li>
-    					<%= image_tag diary.user.avatar_url, class: 'rounded-circle mb-2', width: '30', height: '30' %>
-						</i><%= diary.user.first_name %></li>
-      			<li><i class="bi bi-calendar ms-4 me-2"></i><%= diary.created_at.strftime("%Y/%m/%d %H:%M") %></li>
-					</ul>
-      		<p class="card-text border-bottom text-truncate"><%= diary.first_line %></p>
+					<div class='row mx-2'>
+            <div class="col-6 d-flex border-bottom">
+							<i class="bi bi-calendar me-2"></i>
+							<%= diary.created_at.strftime("%Y/%m/%d") %>
+						</div>
+            <div class="col-6 d-flex border-bottom justify-content-end">
+              <div class="ms-2">
+                <%= "by #{diary.user.first_name}" %>
+                <%= image_tag diary.user.avatar_url, class: 'rounded-circle mb-1', width: '30', height: '30' %>
+              </div>
+            </div>
+          </div>
+      		<p class="card-text mt-3 border-bottom text-truncate"><%= diary.first_line %></p>
       	  <p class="card-text border-bottom text-truncate"><%= diary.second_line %></p>
       	  <p class="card-text border-bottom text-truncate"><%= diary.third_line %></p>
    			</div>

@@ -65,6 +65,10 @@ class DiariesController < ApplicationController
     @bookmark_diaries = current_user.bookmark_diaries.includes(:user).order(created_at: :desc).page(params[:page])
   end
 
+  def my_diaries
+    @my_diaries = current_user.diaries.page(params[:page])
+  end
+
   private
 
   def diary_params
