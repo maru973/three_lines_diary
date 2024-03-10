@@ -1,34 +1,34 @@
 <article class="card shadow" style="background-color: #FFFAF0;">
-  <!-- 丸のアイコンを縦並びにする部分 -->
-  		<div class="d-flex flex-column justify-content-start align-items-center p-3" style="width: 20px; height: 40px;">
-    		<i class="bi bi-circle mb-2"></i>
-				<i class="bi bi-circle mb-2"></i>
-				<i class="bi bi-circle mb-2"></i>
-				<i class="bi bi-circle mb-2"></i>
-				<i class="bi bi-circle mb-2"></i>
-				<i class="bi bi-circle mb-2"></i>
-				<i class="bi bi-circle mb-2"></i>
-				<i class="bi bi-circle mb-2"></i>
-				<i class="bi bi-circle mb-2"></i>
-				<i class="bi bi-circle mb-2"></i>
-				<i class="bi bi-circle mb-2"></i>
-				<i class="bi bi-circle mb-2"></i>
-				<i class="bi bi-circle mb-2"></i>
-				<i class="bi bi-circle mb-2"></i>
-        <i class="bi bi-circle mb-2"></i>
-				<i class="bi bi-circle mb-2"></i>
-				<i class="bi bi-circle mb-2"></i>
-				<i class="bi bi-circle mb-2"></i>
-				<i class="bi bi-circle mb-2"></i>
-				<i class="bi bi-circle mb-2"></i>
-				<i class="bi bi-circle mb-2"></i>
-				<i class="bi bi-circle mb-2"></i>
-				<i class="bi bi-circle mb-2"></i>
-				<i class="bi bi-circle mb-2"></i>
-        <i class="bi bi-circle mb-2"></i>
-  		</div>
   <%= form_with model: diary, local: true do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
+    <!-- 丸のアイコンを縦並びにする部分 -->
+  	<div class="d-flex flex-column justify-content-start align-items-center p-3" style="width: 20px; height: 40px;">
+    	<i class="bi bi-circle mb-2"></i>
+			<i class="bi bi-circle mb-2"></i>
+			<i class="bi bi-circle mb-2"></i>
+			<i class="bi bi-circle mb-2"></i>
+			<i class="bi bi-circle mb-2"></i>
+			<i class="bi bi-circle mb-2"></i>
+			<i class="bi bi-circle mb-2"></i>
+			<i class="bi bi-circle mb-2"></i>
+			<i class="bi bi-circle mb-2"></i>
+			<i class="bi bi-circle mb-2"></i>
+			<i class="bi bi-circle mb-2"></i>
+			<i class="bi bi-circle mb-2"></i>
+			<i class="bi bi-circle mb-2"></i>
+			<i class="bi bi-circle mb-2"></i>
+      <i class="bi bi-circle mb-2"></i>
+			<i class="bi bi-circle mb-2"></i>
+			<i class="bi bi-circle mb-2"></i>
+			<i class="bi bi-circle mb-2"></i>
+			<i class="bi bi-circle mb-2"></i>
+			<i class="bi bi-circle mb-2"></i>
+			<i class="bi bi-circle mb-2"></i>
+			<i class="bi bi-circle mb-2"></i>
+			<i class="bi bi-circle mb-2"></i>
+			<i class="bi bi-circle mb-2"></i>
+      <i class="bi bi-circle mb-2"></i>
+  	</div>
     <div class="m-5">
       <div class="m-4 d-flex flex-column align-items-center">
         <%= image_tag @diary.diary_image_url, class: 'preview', size: '300x200' %>

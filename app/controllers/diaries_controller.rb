@@ -4,7 +4,7 @@ class DiariesController < ApplicationController
   require 'deepl'
 
   def index
-    @diaries = Diary.includes(:user).page(params[:page])
+    @diaries = Diary.includes(:user).order(created_at: :desc).page(params[:page])
   end
 
   def new
@@ -66,7 +66,7 @@ class DiariesController < ApplicationController
   end
 
   def my_diaries
-    @my_diaries = current_user.diaries.page(params[:page])
+    @my_diaries = current_user.diaries.order(created_at: :asc).page(params[:page])
   end
 
   private

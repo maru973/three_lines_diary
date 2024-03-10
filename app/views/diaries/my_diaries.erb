@@ -6,7 +6,7 @@
 				<% if @my_diaries.present? %>
           <%= render @my_diaries %>
 				<% else %>
-					<div class="mb-3">No Diaries</div>
+					<div class="mb-3 text-light">No Diaries</div>
 				<% end %>
 			</div>
 			<%= paginate @my_diaries, theme: 'bootstrap-5'%>
