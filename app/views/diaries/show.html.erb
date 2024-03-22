@@ -36,7 +36,7 @@
               <% if current_user.own?(@diary) %>
                 <div class='col-6 d-flex justify-content-end'>
                   <div class="twitter mx-2">
-                    <%= link_to "https://twitter.com/share?url=#{diary_url(@diary)}&text=I wrote Today's Diary. %0a%0a#{@diary.title}", target: '_blank', data: { toggle: "tooltip", placement: "bottom" }, title: "Post on X" do %>
+                    <%= link_to "https://twitter.com/share?url=#{diary_url(@diary)}&text=I wrote Today's Diary. %0a%0a#{@diary.title}&image=#{asset_url('twitter_card.jpg')}", target: '_blank', data: { toggle: "tooltip", placement: "bottom" }, title: "Post on X" do %>
                       <i class="fa-brands fa-twitter fa-xl text-dark"></i>
                     <% end %>
                   </div>
