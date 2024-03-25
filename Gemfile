@@ -56,6 +56,7 @@ gem 'deepl-rb', require: 'deepl'
 gem 'httpclient'
 gem 'kaminari'
 gem 'bootstrap5-kaminari-views'
+gem 'fog-aws'
 
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
