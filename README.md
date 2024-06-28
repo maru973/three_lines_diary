@@ -1,4 +1,4 @@
-## Three Lines Diary
+# 📓 Three Lines Diary(現在停止中)
 ![lGqxlwLhhP5R7ff1711185785_1711185813](https://github.com/maru973/three_lines_diary/assets/148407473/6fcf878c-3f85-4fd1-b11e-726118906dc1)
 
 
